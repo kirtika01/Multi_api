@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+psutil
+pydantic
+google-generativeai
+python-dotenv
+langchain
+langchain-community
+faiss-cpu
+numpy
+sentence-transformers
+huggingface-hub
+torch
+transformers

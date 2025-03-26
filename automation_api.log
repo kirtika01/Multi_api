@@ -1,0 +1,21 @@
+2025-03-26 12:38:08,776 - INFO - Starting Automation API server...
+2025-03-26 12:40:36,327 - INFO - Starting Automation API server...
+2025-03-26 12:40:44,232 - INFO - Registered custom function: custom_greeting
+2025-03-26 12:40:53,714 - INFO - Executing custom function: custom_greeting
+2025-03-26 12:40:53,714 - INFO - Custom function custom_greeting completed successfully
+2025-03-26 12:40:53,716 - INFO - Request completed in 0.00 seconds
+2025-03-26 14:15:01,077 - INFO - NumExpr defaulting to 12 threads.
+2025-03-26 14:15:04,404 - INFO - Use pytorch device_name: cpu
+2025-03-26 14:15:04,404 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-03-26 14:17:07,101 - INFO - Loading faiss with AVX2 support.
+2025-03-26 14:17:07,101 - INFO - Could not load library with AVX2 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
+2025-03-26 14:17:07,101 - INFO - Loading faiss.
+2025-03-26 14:17:07,165 - INFO - Successfully loaded faiss.
+2025-03-26 14:17:07,197 - INFO - Starting AI-Powered Automation API server...
+2025-03-26 14:17:57,510 - INFO - Processing prompt: what is the current cpu usage
+2025-03-26 14:17:58,574 - INFO - Request completed in 1.06 seconds
+2025-03-26 14:18:07,662 - INFO - Processing prompt: show me ram usage
+2025-03-26 14:18:07,719 - INFO - Request completed in 0.06 seconds
+2025-03-26 14:18:19,482 - INFO - Processing prompt: open chrome browser
+2025-03-26 14:18:19,546 - INFO - Request completed in 0.06 seconds
