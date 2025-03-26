@@ -5,7 +5,7 @@ import logging
 from datetime import datetime
 from ai_engine import AIEngine
 
-# Configure logging
+
 logging.basicConfig(
     filename='automation_api.log',
     level=logging.INFO,
@@ -15,7 +15,7 @@ logging.basicConfig(
 app = FastAPI(title="AI-Powered Automation API",
              description="REST API for executing automation functions using LLM and RAG")
 
-# Initialize AI Engine
+
 ai_engine = AIEngine()
 
 class ExecuteRequest(BaseModel):
@@ -41,7 +41,7 @@ async def register_custom_function(request: CustomFunctionRequest):
         request (CustomFunctionRequest): Contains function name, code, and description
     """
     try:
-        # Add function to AI engine's vector store
+        
         ai_engine.add_custom_function(
             name=request.name,
             description=request.description,
@@ -59,10 +59,10 @@ async def register_custom_function(request: CustomFunctionRequest):
 async def list_available_functions():
     """List all available functions including built-in and custom functions."""
     try:
-        # This will return relevant functions from the vector store
+        
         functions = ai_engine.function_store.similarity_search(
             "List all available functions",
-            k=100  # Get all functions
+            k=100  
         )
         
         return {
@@ -93,7 +93,7 @@ async def execute_automation(request: ExecuteRequest):
     try:
         logging.info(f"Processing prompt: {prompt}")
         
-        # Use AI engine to process the prompt
+       
         result = await ai_engine.process_prompt(prompt)
         
         if not result["success"]:

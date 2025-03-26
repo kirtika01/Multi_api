@@ -6,14 +6,14 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.docstore.document import Document
 
-# Load environment variables
+
 load_dotenv()
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 class AIEngine:
     def __init__(self):
         """Initialize the AI engine with function store and embeddings."""
-        self.embeddings = HuggingFaceEmbeddings()  # Using HuggingFace embeddings instead of OpenAI
+        self.embeddings = HuggingFaceEmbeddings() 
         self.function_store = None
         self.model = genai.GenerativeModel('gemini-pro')
         self.initialize_function_store()
@@ -72,7 +72,7 @@ class AIEngine:
         if self.function_store is None:
             raise ValueError("Function store not initialized")
 
-        # Search for most relevant function
+       
         docs = self.function_store.similarity_search(prompt, k=1)
         if not docs:
             raise ValueError("No relevant function found")
@@ -110,7 +110,7 @@ class AIEngine:
         if function_info["type"] == "custom" and function_info.get("code"):
             return function_info["code"]
 
-        # For built-in functions, generate the appropriate function call
+      
         function_name = function_info["name"]
         if args:
             args_str = ", ".join(f"{k}={repr(v)}" for k, v in args.items())
@@ -129,10 +129,10 @@ class AIEngine:
             Dict containing execution results
         """
         try:
-            # Get relevant function
+          
             function_info = self.get_relevant_function(prompt)
             
-            # Use Gemini to extract potential arguments from prompt
+           
             if "shell" in function_info["name"]:
                 arg_prompt = f"Extract the shell command from this prompt: '{prompt}'. Return only the command, nothing else."
                 command = await self.generate_code_with_gemini(arg_prompt)
@@ -140,13 +140,13 @@ class AIEngine:
             else:
                 args = None
 
-            # Generate execution code
+           
             exec_code = self.generate_execution_code(function_info, args)
             
-            # Create execution namespace
+            
             namespace = {}
             
-            # Execute the code
+           
             exec(exec_code, namespace)
             
             return {

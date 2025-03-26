@@ -68,8 +68,8 @@ def get_ram_usage():
     try:
         memory = psutil.virtual_memory()
         return {
-            'total': round(memory.total / (1024 ** 3), 2),  # Convert to GB
-            'used': round(memory.used / (1024 ** 3), 2),    # Convert to GB
+            'total': round(memory.total / (1024 ** 3), 2),  
+            'used': round(memory.used / (1024 ** 3), 2),    
             'percent': memory.percent
         }
     except Exception as e:
@@ -101,7 +101,7 @@ def execute_shell_command(command):
         return None, str(e)
 
 if __name__ == "__main__":
-    # Example usage
+   
     print("Opening applications...")
     open_chrome()
     time.sleep(1)
